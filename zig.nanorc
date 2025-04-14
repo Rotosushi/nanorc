@@ -1,0 +1,54 @@
+## Syntax highlighting for Zig files.
+
+syntax zig "\.zig$"
+magic "zig source"
+comment "//"
+
+# Comments
+color brightblue "//.*"
+
+# Constants
+color brightred "\<[A-Z_][0-9A-Z_]*\>"
+color brightred "\<[[:digit:]][[:digit:]_]*\>"
+color brightred "\<0x[[:xdigit:]][[:xdigit:]_]*\>"
+color brightred "\<0o[01234567][01234567_]*\>"
+color brightred "\<0b[01][01_]*\>"
+# Labels
+color brightmagenta "\<[[:blank:]]*[A-Za-z_][0-9A-Za-z_]*:[[:blank:]]*\>"
+color normal ":[[:blank:]]*$"
+
+# Types
+color green "\<(i|u)[0-9]+\>"
+color green "\<(f(16|32|64|80|128))\>"
+color green "\<(true|false|null|undefined)\>"
+color green ""([^"]|//")*""
+color green "\<(isize|usize|c_char|c_short|c_ushort|c_int|c_uint|c_long|c_ulong|c_longlong|c_ulonglong|c_longdouble)\>"
+color green "\<(bool|anyopaque|void|noreturn|type|anyerror|comptime_int|comptime_float)\>"
+color green "\<(error|opaque|packed|struct|threadlocal|union|volatile)\>"
+
+# Keywords
+color yellow "\<(addrspace|align|allowzero|anyframe|anytype|asm|async|await)\>"
+color yellow "\<(callconv|comptime|const|enum|export|extern|fn|inline|linksection)\>"
+color yellow "\<(noalias|noinline|nosuspend|pub|test|usingnamespace|var)\>"
+
+# Flow Control
+color magenta "\<(and|break|catch|continue|defer|else|errdefer|for|if|or|orelse)\>"
+color magenta "\<(resume|return|suspend|switch|try|unreachable|while)\>"
+
+# Operators
+color cyan "(\+|\+=|\+%|\+%=|\+\||\+\|=)"
+color cyan "(-|-=|-%|-%=|-\|\-\|=)"
+color cyan "(\*|\*=|\*%|\*%=|\*\||\*\|=)"
+color cyan "(/|/=|%|%=)"
+color cyan "(<<|<<=|<<\||<<\|=|>>|>>=)"
+color cyan "(&|&=|\||\|=|\^|\^=|~|!|\.)"
+color cyan "(=|==|!=|>|>=|<|<=|\+\+|\|\|)"
+
+# Builtins
+color brightyellow "@[A-Za-z_][0-9A-Za-z_]*"
+
+# Reminders
+color brightyellow "\<#([A-Z_][0-9A-Z_]*)\>"
+
+# Trailing Whitespace
+color ,green "[[:space:]]+$"
